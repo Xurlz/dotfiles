@@ -74,6 +74,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/phpunit'
 call plug#end()
 
 let g:vim_http_tempbuffer=1
@@ -86,7 +87,7 @@ set background=dark
 
 command Scratch set buftype=nofile
 command Errors normal oini_set('display_errors','1');<Esc>
-command PhpUnit normal iuse PHPUnit\Framework\TestCase;class FooTest extends TestCase{function test(){}}<Esc>
+command TemplateTestCase normal iuse PHPUnit\Framework\TestCase;class FooTest extends TestCase{function test(){}}<Esc>
 command Json .!python3 -m json.tool
 
 nnoremap <C-n> :NERDTreeToggle<cr>
