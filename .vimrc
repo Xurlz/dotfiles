@@ -74,7 +74,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'marlonfan/coc-phpls'
 call plug#end()
 
 let g:vim_http_tempbuffer=1
