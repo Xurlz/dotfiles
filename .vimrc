@@ -56,10 +56,6 @@ set scrolloff=1
 set mouse=a
 set encoding=utf-8
 
-function ReadDate()
-  execute 'normal :read !date +\%Y-\%m-\%d\ \%H:\%M' . "\r" | execute 'normal kJ' | execute 'normal 8e'
-endfunction
-
 call plug#begin()
 Plug 'AndrewRadev/undoquit.vim', {'tag': 'v0.1.0'}
 Plug 'NLKNguyen/pipe.vim'
@@ -89,8 +85,6 @@ call togglebg#map("<F5>")
 colorscheme solarized
 set background=dark
 
-command ReadDate :call ReadDate
-command -nargs=* Tests :Pipe ./vendor/bin/phpunit <args>
 command Scratch set buftype=nofile
 command Errors normal oini_set('display_errors','1');<Esc>
 command PhpUnit normal iuse PHPUnit\Framework\TestCase;class FooTest extends TestCase{function test(){}}<Esc>
