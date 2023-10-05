@@ -80,6 +80,7 @@ call plug#end()
 let g:vim_http_tempbuffer=1
 let g:vim_http_split_vertically=1
 let g:netrw_liststyle=3
+let phpunit_bin="./vendor/bin/phpunit"
 
 call togglebg#map("<F5>")
 colorscheme solarized
