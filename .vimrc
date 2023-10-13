@@ -82,6 +82,7 @@ let g:vim_http_split_vertically=1
 let g:netrw_liststyle=3
 let phpunit_bin="./vendor/bin/phpunit"
 
+set nomodeline
 call togglebg#map("<F5>")
 colorscheme solarized
 set background=dark
