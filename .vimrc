@@ -85,6 +85,7 @@ let g:vim_http_tempbuffer=1
 let g:vim_http_split_vertically=1
 let g:netrw_liststyle=3
 
+set textwidth=71
 call togglebg#map("<F5>")
 colorscheme solarized
 set background=dark
