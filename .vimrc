@@ -57,6 +57,7 @@ set mouse=a
 set encoding=utf-8
 
 call plug#begin()
+Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
 Plug 'AndrewRadev/undoquit.vim', {'tag': 'v0.1.0'}
 Plug 'NLKNguyen/pipe.vim'
 Plug 'TysonAndre/php-vim-syntax'
@@ -91,10 +92,8 @@ set background=dark
 command Scratch set buftype=nofile
 command Errors normal oini_set('display_errors','1');<Esc>
 command TemplateTestCase normal iuse PHPUnit\Framework\TestCase;class FooTest extends TestCase{function test(){}}<Esc>
-command Json .!python3 -m json.tool
 
 nnoremap <C-n> :NERDTreeToggle<cr>
 map <Leader> <Plug>(easymotion-prefix)
 nnoremap \\\fun ifunction foo(){return;}<Esc>kke
 nnoremap \\\class iclass Foo{}<Esc>h
-
