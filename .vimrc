@@ -61,6 +61,7 @@ function ReadDate()
 endfunction
 
 call plug#begin()
+Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
 Plug 'AndrewRadev/undoquit.vim', {'tag': 'v0.1.0'}
 Plug 'NLKNguyen/pipe.vim'
 Plug 'TysonAndre/php-vim-syntax'
@@ -95,10 +96,8 @@ command -nargs=* Tests :Pipe ./vendor/bin/phpunit <args>
 command Scratch set buftype=nofile
 command Errors normal oini_set('display_errors','1');<Esc>
 command PhpUnit normal iuse PHPUnit\Framework\TestCase;class FooTest extends TestCase{function test(){}}<Esc>
-command Json .!python3 -m json.tool
 
 nnoremap <C-n> :NERDTreeToggle<cr>
 map <Leader> <Plug>(easymotion-prefix)
 nnoremap \\\fun ifunction foo(){return;}<Esc>kke
 nnoremap \\\class iclass Foo{}<Esc>h
-
