@@ -108,3 +108,7 @@ nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
+" Ergonomic tab switch mappings
+nmap <silent> zk :tabnext<cr>
+nmap <silent> zj :tabprev<cr>
+
