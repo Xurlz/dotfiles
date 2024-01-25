@@ -10,7 +10,7 @@
 	helper = 
 	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.14.4/bin/gh auth git-credential
 [core]
-	editor = vim
+	editor = nvim
 [alias]
 	s = status --short
 	l = log --oneline --decorate
