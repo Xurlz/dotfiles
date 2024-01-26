@@ -115,3 +115,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Start tmux in case if installed and it has not been started yet
+if [ -x /usr/bin/tmux ] && [[ $TERM_PROGRAM != 'tmux' ]]; then
+  tmux new-session -smain
+fi
+
