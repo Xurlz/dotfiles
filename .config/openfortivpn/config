@@ -1,0 +1,7 @@
+### configuration file for openfortivpn, see man openfortivpn(1) ###
+
+# Office
+host = 177.185.15.35
+port = 11043
+username = gk.charles.sena
+password = fullfill-manually
