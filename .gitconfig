@@ -17,6 +17,3 @@
 	undo = reset --soft HEAD~1
 	unstage = restore --staged
 	staged = diff --staged
-	q-commit = !git commit -m \"$(date +%Y-%m-%d\\ %H:%M:%S)\"
-	q-commitam = !git commit -am \"$(date +%Y-%m-%d\\ %H:%M:%S)\"
-	q-amendam = !git commit --amend -am \"$(date +%Y-%m-%d\\ %H:%M:%S)\"
