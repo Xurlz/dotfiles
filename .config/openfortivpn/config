@@ -5,3 +5,5 @@ host = 177.185.15.35
 port = 11043
 username = gk.charles.sena
 password = fullfill-manually
+trusted-cert = 2d8bfbeb15cb4e0dfe02b542176541caa3de0b362f94c074359108ee588061f1
+
