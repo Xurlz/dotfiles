@@ -57,6 +57,8 @@ set mouse=a
 set encoding=utf-8
 
 call plug#begin()
+Plug 'vim-test/vim-test'
+Plug 'airblade/vim-gitgutter'
 Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
 Plug 'AndrewRadev/undoquit.vim', {'tag': 'v0.1.0'}
 Plug 'NLKNguyen/pipe.vim'
