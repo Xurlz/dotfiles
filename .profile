@@ -31,4 +31,4 @@ if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
 fi
 
 export FCEDIT=vi
-
+export LANG=en_US.UTF-8
