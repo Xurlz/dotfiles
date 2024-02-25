@@ -61,6 +61,7 @@ Plug 'nordtheme/vim'
 Plug 'rking/ag.vim'
 Plug 'vim-test/vim-test'
 Plug 'airblade/vim-gitgutter'
+Plug 'freitass/todo.txt-vim',
 Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
 Plug 'AndrewRadev/undoquit.vim', {'tag': 'v0.1.0'}
 Plug 'NLKNguyen/pipe.vim'
