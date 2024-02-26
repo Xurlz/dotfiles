@@ -90,7 +90,41 @@ let phpunit_bin="./vendor/bin/phpunit"
 set textwidth=71
 set nomodeline
 call togglebg#map("<F5>")
+
+" Nord related settings
 colorscheme nord
+
+" Visual selection highlight workaround
+let s:nord2_gui = "#434C5E"
+let s:nord8_term = "6"
+
+function! s:hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
+  let cmd = ""
+  if a:guifg != ""
+    let cmd = cmd . " guifg=" . a:guifg
+  endif
+  if a:guibg != ""
+    let cmd = cmd . " guibg=" . a:guibg
+  endif
+  if a:ctermfg != ""
+    let cmd = cmd . " ctermfg=" . a:ctermfg
+  endif
+  if a:ctermbg != ""
+    let cmd = cmd . " ctermbg=" . a:ctermbg
+  endif
+  if a:attr != ""
+    let cmd = cmd . " gui=" . a:attr . " cterm=" . substitute(a:attr, "undercurl", s:underline, "")
+  endif
+  if a:guisp != ""
+    let cmd = cmd . " guisp=" . a:guisp
+  endif
+  if cmd != ""
+    exec "hi " . a:group . cmd
+  endif
+endfunction
+
+call s:hi("Visual", "", s:nord2_gui, "", s:nord8_term, "", "")
+
 set background=dark
 
 command Errors normal oini_set('display_errors','1');<Esc>
