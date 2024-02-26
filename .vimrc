@@ -57,6 +57,7 @@ set mouse=a
 set encoding=utf-8
 
 call plug#begin()
+Plug 'nordtheme/vim'
 Plug 'rking/ag.vim'
 Plug 'vim-test/vim-test'
 Plug 'airblade/vim-gitgutter'
@@ -89,7 +90,7 @@ let phpunit_bin="./vendor/bin/phpunit"
 set textwidth=71
 set nomodeline
 call togglebg#map("<F5>")
-colorscheme solarized
+colorscheme nord
 set background=dark
 
 command Errors normal oini_set('display_errors','1');<Esc>
