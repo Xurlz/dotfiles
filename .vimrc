@@ -59,6 +59,7 @@ set encoding=utf-8
 call plug#begin()
 Plug 'nordtheme/vim'
 Plug 'rking/ag.vim'
+Plug 'mfussenegger/nvim-dap'
 Plug 'vim-test/vim-test'
 Plug 'airblade/vim-gitgutter'
 Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
