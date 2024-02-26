@@ -17,7 +17,9 @@ if v:progname =~? "evim"
 endif
 
 " Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
+if(!has('nvim'))
+  source $VIMRUNTIME/defaults.vim
+endif
 
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
@@ -54,11 +56,13 @@ set scrolloff=1
 set mouse=a
 set encoding=utf-8
 
-function ReadDate()
-  execute 'normal :read !date +\%Y-\%m-\%d\ \%H:\%M' . "\r" | execute 'normal kJ' | execute 'normal 8e'
-endfunction
-
 call plug#begin()
+Plug 'nordtheme/vim'
+Plug 'rking/ag.vim'
+Plug 'vim-test/vim-test'
+Plug 'airblade/vim-gitgutter'
+Plug 'freitass/todo.txt-vim',
+Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
 Plug 'AndrewRadev/undoquit.vim', {'tag': 'v0.1.0'}
 Plug 'NLKNguyen/pipe.vim'
 Plug 'TysonAndre/php-vim-syntax'
@@ -76,25 +80,72 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/phpunit'
 call plug#end()
 
 let g:vim_http_tempbuffer=1
 let g:vim_http_split_vertically=1
 let g:netrw_liststyle=3
+let phpunit_bin="./vendor/bin/phpunit"
 
+set textwidth=71
+set nomodeline
 call togglebg#map("<F5>")
-colorscheme solarized
+
+" Nord related settings
+colorscheme nord
+
+" Visual selection highlight workaround
+let s:nord2_gui = "#434C5E"
+let s:nord8_term = "6"
+
+function! s:hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
+  let cmd = ""
+  if a:guifg != ""
+    let cmd = cmd . " guifg=" . a:guifg
+  endif
+  if a:guibg != ""
+    let cmd = cmd . " guibg=" . a:guibg
+  endif
+  if a:ctermfg != ""
+    let cmd = cmd . " ctermfg=" . a:ctermfg
+  endif
+  if a:ctermbg != ""
+    let cmd = cmd . " ctermbg=" . a:ctermbg
+  endif
+  if a:attr != ""
+    let cmd = cmd . " gui=" . a:attr . " cterm=" . substitute(a:attr, "undercurl", s:underline, "")
+  endif
+  if a:guisp != ""
+    let cmd = cmd . " guisp=" . a:guisp
+  endif
+  if cmd != ""
+    exec "hi " . a:group . cmd
+  endif
+endfunction
+
+call s:hi("Visual", "", s:nord2_gui, "", s:nord8_term, "", "")
+
 set background=dark
 
 command ReadDate :call ReadDate
 command -nargs=* Tests :Pipe ./vendor/bin/phpunit <args>
 command Scratch set buftype=nofile
 command Errors normal oini_set('display_errors','1');<Esc>
-command PhpUnit normal iuse PHPUnit\Framework\TestCase;class FooTest extends TestCase{function test(){}}<Esc>
-command Json .!python3 -m json.tool
+command TemplateTestCase normal iuse PHPUnit\Framework\TestCase;
 
 nnoremap <C-n> :NERDTreeToggle<cr>
 map <Leader> <Plug>(easymotion-prefix)
 nnoremap \\\fun ifunction foo(){return;}<Esc>kke
 nnoremap \\\class iclass Foo{}<Esc>h
+
+" Lazy window switch mappings
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+
+" Ergonomic tab switch mappings
+nmap <silent> zk :tabnext<cr>
+nmap <silent> zj :tabprev<cr>
 
