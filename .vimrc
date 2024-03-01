@@ -130,6 +130,7 @@ set background=dark
 
 command Errors normal oini_set('display_errors','1');<Esc>
 command TemplateTestCase normal iuse PHPUnit\Framework\TestCase;class FooTest extends TestCase{function test(){}}<Esc>
+command TrimTrailingWhiteSpaces %s/\s\+$//g | noh
 
 nnoremap <C-n> :NERDTreeToggle<cr>
 map <Leader> <Plug>(easymotion-prefix)
