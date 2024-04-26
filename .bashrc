@@ -117,3 +117,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Ranger. Enable ranger_cd function
+if [ -f $HOMEBREW_CELLAR/ranger/1.9.3_2/share/doc/ranger/examples/shell_automatic_cd.sh ]; then
+  source $HOMEBREW_CELLAR/ranger/1.9.3_2/share/doc/ranger/examples/shell_automatic_cd.sh
+fi
+
+# Enable ranger to execute `ranger_cd`
+if [ -x $(which ranger) ]; then
+  alias ranger='ranger_cd'
+fi
+

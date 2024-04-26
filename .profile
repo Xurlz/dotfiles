@@ -30,3 +30,7 @@ export FCEDIT=nvim
 export OPENAI_API_KEY="$(cat ~/.secrets | grep OPENAI_API_KEY | sed -e 's/OPENAI_API_KEY="\([^"]*\)"/\1/g')"
 export LANG=en_US.UTF-8
 
+if [ -x $(which ranger) ]; then
+  alias ranger='ranger_cd'
+fi
+
