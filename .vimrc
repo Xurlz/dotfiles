@@ -57,6 +57,15 @@ set mouse=a
 set encoding=utf-8
 
 call plug#begin()
+" if(has('nvim')) 
+"   Plug 'nvim-lua/plenary.nvim'
+"   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+" endif
+Plug 'preservim/tagbar',
+Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o' }
+Plug 'neovim/nvim-lspconfig'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nordtheme/vim'
 Plug 'rking/ag.vim'
 Plug 'vim-test/vim-test'
@@ -65,22 +74,19 @@ Plug 'freitass/todo.txt-vim',
 Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
 Plug 'AndrewRadev/undoquit.vim', {'tag': 'v0.1.0'}
 Plug 'NLKNguyen/pipe.vim'
-Plug 'TysonAndre/php-vim-syntax'
+"Plug 'TysonAndre/php-vim-syntax'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chrisbra/vim-xml-runtime'
 Plug 'easymotion/vim-easymotion'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nicwest/vim-http',
 Plug 'preservim/nerdtree'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'vim-scripts/phpunit'
 call plug#end()
 
 let g:vim_http_tempbuffer=1
@@ -132,10 +138,30 @@ command Errors normal oini_set('display_errors','1');<Esc>
 command TemplateTestCase normal iuse PHPUnit\Framework\TestCase;class FooTest extends TestCase{function test(){}}<Esc>
 command TrimTraillingWhiteSpaces %s/\s\+$//g | noh
 
-nnoremap <C-n> :NERDTreeToggle<cr>
+" NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" Easymotion
 map <Leader> <Plug>(easymotion-prefix)
-nnoremap \\\fun ifunction foo(){return;}<Esc>kke
-nnoremap \\\class iclass Foo{}<Esc>h
+
+" Easymotion. hjkl config
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
+" Git Gutter (Prevent conflict with Easymotion hjkl config
+nmap <Leader>up <Plug>(GitGutterPreviewHunk)
+nmap <Leader>uu <Plug>(GitGutterUndoHunk)
+nmap <Leader>us <Plug>(GitGutterStageHunk)
+xmap <Leader>us <Plug>(GitGutterStageHunk)
+
+" Telescope
+nmap <Leader>p :Telescope command_history<cr>
+nnoremap <Leader>o :Telescope git_files<cr>
+nnoremap <Leader>O :Telescope find_files<cr>
 
 " Lazy window switch mappings
 nmap <silent> <C-j> :wincmd j<CR>
@@ -143,7 +169,11 @@ nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-" Ergonomic tab switch mappings
-nmap <silent> zk :tabnext<cr>
-nmap <silent> zj :tabprev<cr>
+" Ergonomic tab switch mappings (unimpaired inspired)
+nmap <silent> >t :tabnext<cr>
+nmap <silent> <t :tabprev<cr>
+
+" Vim airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
