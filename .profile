@@ -25,8 +25,14 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# set PATH so it includes user's composer (blobal installed) bin if it exists
+if [ -d "$HOME/.config/composer/vendor/bin" ] ; then
+    PATH="$HOME/.config/composer/vendor/bin:$PATH"
+fi
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 export FCEDIT=nvim
-export OPENAI_API_KEY="$(cat ~/.secrets | grep OPENAI_API_KEY | sed -e 's/OPENAI_API_KEY="\([^"]*\)"/\1/g')"
 export LANG=en_US.UTF-8
 
