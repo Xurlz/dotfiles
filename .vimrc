@@ -61,6 +61,7 @@ function ReadDate()
 endfunction
 
 call plug#begin()
+Plug 'nordtheme/vim'
 Plug 'freitass/todo.txt-vim',
 Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
 Plug 'AndrewRadev/undoquit.vim', {'tag': 'v0.1.0'}
@@ -112,4 +113,6 @@ nmap <silent> <C-l> :wincmd l<CR>
 " Ergonomic tab switch mappings
 nmap <silent> zk :tabnext<cr>
 nmap <silent> zj :tabprev<cr>
+
+silent! colorscheme nord
 
