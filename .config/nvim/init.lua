@@ -14,6 +14,16 @@ vim.opt.rtp:prepend(lazypath)
 
 plugins = {
   {
+    'nvim-treesitter/nvim-treesitter',
+    cmd = 'TSUpdate',
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        ensure_installed = { "php", "vim", "vimdoc", "lua" },
+        auto_install = true,
+      }
+    end
+  },
+  {
     'tpope/vim-surround'
   },
   {
