@@ -15,9 +15,8 @@ if [ -n "$BASH_VERSION" ]; then
 	  . "$HOME/.bashrc"
     fi
 fi
-
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
+    # set PATH so it includes user's private bin if it exists
     PATH="$HOME/bin:$PATH"
 fi
 
@@ -34,5 +33,8 @@ fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export FCEDIT=nvim
+export EDITOR=vim
 export LANG=en_US.UTF-8
+export HISTFILE=$HOME/.bash_history.`hostname`
+export HISTCONTROL=eraseduplicates
 
