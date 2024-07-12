@@ -57,15 +57,24 @@ set mouse=a
 set encoding=utf-8
 
 call plug#begin()
-" if(has('nvim')) 
-"   Plug 'nvim-lua/plenary.nvim'
-"   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
-" endif
+if(has('nvim')) 
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+  Plug 'zbirenbaum/copilot.lua'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
+endif
+
+
+Plug 'github/copilot.vim'
 Plug 'preservim/tagbar',
 Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ctrlpvim/ctrlp.vim'
+
+if !has('nvim')
+  Plug 'ctrlpvim/ctrlp.vim'
+endif
+
 Plug 'nordtheme/vim'
 Plug 'rking/ag.vim'
 Plug 'vim-test/vim-test'
@@ -88,6 +97,12 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
+
+lua <<EOF
+require("CopilotChat").setup {
+  debug = false, -- Enable debugging
+}
+EOF
 
 let g:vim_http_tempbuffer=1
 let g:vim_http_split_vertically=1
@@ -159,9 +174,12 @@ nmap <Leader>us <Plug>(GitGutterStageHunk)
 xmap <Leader>us <Plug>(GitGutterStageHunk)
 
 " Telescope
-nmap <Leader>p :Telescope command_history<cr>
-nnoremap <Leader>o :Telescope git_files<cr>
-nnoremap <Leader>O :Telescope find_files<cr>
+if has('nvim')
+  " Telescope
+  nnoremap <C-p> :Telescope find_files<cr>
+  nnoremap <Leader><C-u> :Telescope buffers<cr>
+  nnoremap <Leader>O :Telescope find_files<cr>
+endif
 
 " Lazy window switch mappings
 nmap <silent> <C-j> :wincmd j<CR>
@@ -176,4 +194,19 @@ nmap <silent> <t :tabprev<cr>
 " Vim airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" CtrlP
+if !has('nvim')
+  map <Leader><C-u> :CtrlPBuffer<cr>
+endif
+
+function! DefineTermCommand(cmd, term)
+    execute 'command' a:cmd 'edit term://' . a:term . ' | file' a:cmd . ' | normal a'
+endfunction
+
+" Lazygit command
+call DefineTermCommand('LazyGit', 'lazygit')
+
+" Terminal command
+call DefineTermCommand('Terminal', 'bash')
 
