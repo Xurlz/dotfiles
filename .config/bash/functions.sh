@@ -1,5 +1,15 @@
 # shellcheck shell=sh
 
+function dotfiles() {
+  git_dir=$DOTFILES_GIT_DIR
+
+  if [ -d ${git_dir} ]; then
+    git --git-dir=${git_dir} --work-tree=$HOME $@
+  else
+    return 1
+  fi
+}
+
 # Compatible with ranger 1.4.2 through 1.9.*
 #
 # Automatically change the current working directory after closing ranger

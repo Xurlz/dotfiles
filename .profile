@@ -37,4 +37,5 @@ export EDITOR=vim
 export LANG=en_US.UTF-8
 export HISTFILE=$HOME/.bash_history.`hostname`
 export HISTCONTROL=eraseduplicates
+export DOTFILES_GIT_DIR=$HOME/.dotfiles/
 

@@ -98,11 +98,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
-lua <<EOF
-require("CopilotChat").setup {
-  debug = false, -- Enable debugging
-}
-EOF
 
 let g:vim_http_tempbuffer=1
 let g:vim_http_split_vertically=1
