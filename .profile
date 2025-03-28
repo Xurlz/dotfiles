@@ -32,10 +32,9 @@ fi
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-export FCEDIT=nvim
-export EDITOR=vim
 export LANG=en_US.UTF-8
-export HISTFILE=$HOME/.bash_history.`hostname`
-export HISTCONTROL=eraseduplicates
+export HISTFILE=$HOME/.bash_history
+export HISTCONTROL=eraseduplicates:ignoreboth
 export DOTFILES_GIT_DIR=$HOME/.dotfiles/
 
+. "$HOME/.cargo/env"

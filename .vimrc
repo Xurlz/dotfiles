@@ -10,6 +10,14 @@
 "	      for Haiku:  ~/config/settings/vim/vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
+if has('persistent_undo')
+  call system('mkdir ' . '$HOME/.vim/')
+  let undoDir = expand('$HOME/.vim/undodir')
+  call system('mkdir ' . undoDir)
+  let &undodir = undoDir
+  set undofile
+endif
+
 " When started as "evim", evim.vim will already have done these settings, bail
 " out.
 if v:progname =~? "evim"
