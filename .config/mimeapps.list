@@ -1,0 +1,22 @@
+[Default Applications]
+text/html=com.brave.Browser.desktop
+x-scheme-handler/http=com.brave.Browser.desktop
+x-scheme-handler/https=com.brave.Browser.desktop
+x-scheme-handler/about=brave_brave.desktop
+x-scheme-handler/unknown=brave_brave.desktop
+x-scheme-handler/webcal=brave_brave.desktop
+application/xhtml+xml=com.brave.Browser.desktop
+x-scheme-handler/mailto=org.gnome.Geary.desktop
+application/x-ahk_x11=ahk_x11.desktop
+text/plain=nvim.desktop
+
+[Added Associations]
+x-scheme-handler/http=snapd-brave_brave.desktop;com.brave.Browser.desktop;
+application/xhtml+xml=com.brave.Browser.desktop;
+text/html=com.brave.Browser.desktop;
+x-scheme-handler/https=com.brave.Browser.desktop;
+x-scheme-handler/mailto=org.gnome.Geary.desktop;
+application/vnd.snap=nvim.desktop;snap-store_snap-store.desktop;snap-handle-link.desktop;
+application/pdf=com.calibre_ebook.calibre.desktop;
+text/plain=nvim.desktop;
+application/x-ms-dos-executable=com.usebottles.bottles.desktop;vim.desktop;
