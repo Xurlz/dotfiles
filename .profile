@@ -30,11 +30,7 @@ if [ -d "$HOME/.config/composer/vendor/bin" ] ; then
     PATH="$HOME/.config/composer/vendor/bin:$PATH"
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 export LANG=en_US.UTF-8
 export HISTFILE=$HOME/.bash_history
 export HISTCONTROL=eraseduplicates:ignoreboth
-export DOTFILES_GIT_DIR=$HOME/.dotfiles/
 
-. "$HOME/.cargo/env"
