@@ -7,6 +7,8 @@ return {
   { import = "astrocommunity.colorscheme.nord-nvim" },
   { import = "astrocommunity.motion.leap-nvim"},
   { import = "astrocommunity.motion.nvim-surround"},
+  { import = "astrocommunity.pack.laravel"},
+  { import = "astrocommunity.pack.vue"},
   { import = "astrocommunity.test.neotest"},
   { import = "astrocommunity.test.vim-test"},
   -- { import = "astrocommunity.debugging.nvim-dap-view"}
