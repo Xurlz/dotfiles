@@ -2,10 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-<<<<<<< HEAD
-=======
-export KBUILD_SIGN_PIN=keep
->>>>>>> f57574b (Add personal asus popos dotfiles)
+# export KBUILD_SIGN_PIN=keep
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
