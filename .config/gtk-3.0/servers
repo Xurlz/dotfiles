@@ -23,4 +23,24 @@
       </metadata>
     </info>
   </bookmark>
+  <bookmark href="sftp://charles.sena@10.204.155.2/" added="2025-12-02T15:06:17.651781Z" modified="2025-12-02T20:22:06.317834Z" visited="2025-12-02T20:22:06.317830Z">
+    <title>/ on 10.204.155.2</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2025-12-02T20:22:06.317832Z" count="9"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="sftp://charles.sena@10.204.155.2/home" added="2025-12-02T18:55:09.665122Z" modified="2025-12-02T18:55:09.665130Z" visited="2025-12-02T18:55:09.665124Z">
+    <title>home</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2025-12-02T18:55:09.665127Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
 </xbel>
